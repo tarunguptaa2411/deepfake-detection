@@ -1,43 +1,54 @@
-# DeepFakes-Detection
+---
 
-```markdown
-## My Approach -
-### How It Works 💡
-- We take 15 uniformly time-spaced frames from the video and work upon them.
-- Then we crop out the area around the person's face in each frame using the Harrcascade module.
-- Harrcascade performs pixel-wise face localisation on various scales of faces by taking advantages of joint extra-supervised and self-supervised multi-task learning. 
-- We use Harrcascade with Resnet-50 as the encoder model.
-- After getting the cropped face we normalizing it and resize every pictures to (320,320,3) shape, i.e. an rgb image of 320px * 320px
-- We finally use an ensemble of Efficient-Net and Xception net by getting there predictions as probabilites and then try out different ratios for the both of them.
-- The best ratio was with giving 30% weightage to the xception model's score and 70% to the efficient net model.
+# Deepfake Detection System 🔍🎥
 
-## Results
-- This model acheived 2nd place in the [DeepFake Detection Challenge hosted on Kaggle](https://www.kaggle.com/competitions/deepfake-detection/overview)
-- F1 Score on the testing dataset = 0.861
+Deepfakes have emerged as a serious challenge in the digital age, blurring the lines between reality and manipulation. Our system leverages advanced computer vision techniques and state-of-the-art deep learning models to detect deepfake videos with high accuracy. This project was ranked **2nd place** in the [Kaggle DeepFake Detection Challenge](https://www.kaggle.com/competitions/deepfake-detection/overview), achieving an impressive **F1 score of 0.861**!
 
+---
 
+## How It Works 💡
 
-# Deepfake Videos Detection 🔍🎥
+1. **Frame Selection**: We extract 15 uniformly spaced frames from the video, ensuring we capture the subject’s facial movements throughout.
+   
+2. **Face Detection**: Using the Haar Cascade Classifier, we localize the face in each frame. This method is a powerful pixel-wise face localization tool that works across multiple face scales by employing a combination of joint extra-supervised and self-supervised multi-task learning.
 
+3. **Deep Learning Backbone**: The face regions are cropped, normalized, and resized to a consistent dimension of **320x320 pixels** (RGB format). 
 
+4. **Model Ensemble**:
+   - We harness the power of two robust models: **EfficientNet** and **Xception**. 
+   - By fusing their predictions with a weighted ensemble, where EfficientNet contributes **70%** and Xception adds **30%** to the final score, we capture diverse feature representations from the frames.
 
+5. **Prediction**: The ensemble's combined score helps classify whether the video is real or deepfake.
 
-## Results 📊
+---
+
+## Performance Metrics 📊
+
 - **Precision**: 0.88
 - **Recall**: 0.85
 - **F1 Score**: 0.861
 
-The combination of computer vision techniques and cutting-edge deep learning models makes this system highly efficient in identifying Deepfakes in videos.
-
-## Project Timeline
-**December 2023**
+This balanced combination of precision and recall highlights the robustness of the system in detecting deepfakes, minimizing both false positives and false negatives.
 
 ---
 
-## Contributions
-Feel free to contribute by submitting pull requests or opening issues. We welcome any ideas to improve the accuracy, speed, or feature set of this project.
+## Project Timeline 🗓️
 
+- **December 2023**: Project development and Kaggle submission
 
-```
+---
 
-This README is designed to be both informative and engaging, using a combination of emojis and well-structured sections to keep it eye-catching while providing a clear overview of the project.
+## How to Contribute 💻
+
+We invite developers and researchers to contribute to this project. Whether you want to improve accuracy, enhance speed, or add new features, your ideas are welcome! Simply submit a **pull request** or open an **issue**. Let’s collaborate to combat the threat of deepfake videos together.
+
+---
+
+## Acknowledgments 🙌
+
+A huge thanks to Kaggle for hosting the challenge and to the entire open-source community for the valuable tools and resources that made this project possible.
+
+--- 
+
+Together, let’s keep our digital world safer from misinformation! 💻✨
+
